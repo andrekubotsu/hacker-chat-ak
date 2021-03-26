@@ -47,8 +47,8 @@ export default class SocketClient {
             port: this.port,
             host: this.host,
             headers: {
-                connection: 'Upgrade',
-                upgrade: 'websocket'
+                Connection: 'Upgrade',
+                Upgrade: 'WebSocket'
             }
         }
         

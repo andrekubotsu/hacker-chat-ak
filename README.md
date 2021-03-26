@@ -14,3 +14,5 @@
         - usa HTTP upgrade header: é o upgrade do HTTP;
 
 - *Aula 03* - Atualização de dados em tempo real (dados de atividade, mensagens e usuários online)
+
+- *Aula 04* - Finalização do app: criando comando npm custom, publicação de pacotes npm e servidor na web;

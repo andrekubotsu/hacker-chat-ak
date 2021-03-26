@@ -16,11 +16,24 @@ export default class EventManager {
         })
     }
 
+    disconnectUser(user){
+        const {userName, id} = user
+        this.#allUsers.delete(id)
+        this.#updateActivityLogComponent(`${userName} left!`)
+        this.#updateUsersComponent()
+    }
+
     updateUsers(users) {
         const connectedUsers = users;
         connectedUsers.forEach(({ id, userName }) => this.#allUsers.set(id, userName));
         this.#updateUsersComponent()
     }
+
+
+    message(message){
+        this.componentEmitter.emit(constants.events.app.MESSAGE_RECEIVED, message);
+    }
+
 
     newUserConnected(message) {
         const user = message;
@@ -33,12 +46,12 @@ export default class EventManager {
         this.componentEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, message);
     }
 
-    #emitComponentUpdate(event, message) {
-        this.componentEmitter.emit(event, message);
-    }
-
     #updateUsersComponent() {
-        this.#emitComponentUpdate(constants.events.app.STATUS_UPDATED, Array.from(this.#allUsers.values()));
+        this.componentEmitter.emit(
+            constants.events.app.STATUS_UPDATED,
+            Array.from(this.#allUsers.values())
+        )
+
     }
 
     getEvents() {
