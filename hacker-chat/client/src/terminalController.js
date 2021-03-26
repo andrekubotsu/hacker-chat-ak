@@ -26,7 +26,7 @@ export default class TerminalController {
     #onInputReceived(eventEmitter) {
         return function () {
             const message = this.getValue()
-            console.log(message)
+            eventEmitter.emit(constants.events.app.MESSAGE_SENT, message)
             this.clearValue()
         }
     }
@@ -97,18 +97,18 @@ export default class TerminalController {
         components.screen.render()
 
         // teste
-        setInterval(() => {
-            const users = ['andre']
-            eventEmitter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'hey', userName: 'andre' })
-            eventEmitter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'ho', userName: 'amanda' })
-            eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'andre join')
-            eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'andre left')
-            eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'amanda join')
-            eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-            users.push('mariazinha')
-            eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-            users.push('amanda', 'maravilha')
-            eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-        }, 2000)
+        // setInterval(() => {
+        //     const users = ['andre']
+        //     eventEmitter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'hey', userName: 'andre' })
+        //     eventEmitter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'ho', userName: 'amanda' })
+        //     eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'andre join')
+        //     eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'andre left')
+        //     eventEmitter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'amanda join')
+        //     eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
+        //     users.push('mariazinha')
+        //     eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
+        //     users.push('amanda', 'maravilha')
+        //     eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
+        // }, 2000)
     }
 }
