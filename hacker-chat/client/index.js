@@ -1,4 +1,14 @@
+#!/usr/bin/env node
+
 /*
+    chmod +x index.js -> transforma em executavel
+*/
+
+/*
+    hacker-chat\
+        --username andrekubotsu \
+        --room sala01
+
     node index.js \
         --username andre \
         --room sala01 \
