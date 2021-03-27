@@ -18,3 +18,7 @@
 - *Aula 04* - Finalização do app: criando comando npm custom, publicação de pacotes npm e servidor na web;
     - heroku - deploy para testes;
     - npm - depĺoy dos pacotes em produção;
+
+## Instalação:
+
+- npm tanto no server quanto no client;
